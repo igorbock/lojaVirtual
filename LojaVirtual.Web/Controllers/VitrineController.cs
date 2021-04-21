@@ -14,13 +14,13 @@ namespace LojaVirtual.Web.Controllers
         public int produtosPorPagina = 2;
 
         // GET: Vitrine
-        public ViewResult ListaProdutos(int pagina = 1)
+        public ViewResult ListaProdutos(string categoria, int pagina = 1)
         {
             context = new LojaDbContext();
 
             ProdutoViewModel produtoViewModel = new ProdutoViewModel()
             {
-                Produtos = context.Produtos.OrderBy(p => p.Descricao).Skip((pagina - 1) * produtosPorPagina).Take(produtosPorPagina),
+                Produtos = context.Produtos.Where(p => p.Categoria == null || p.Categoria == categoria).OrderBy(p => p.Descricao).Skip((pagina - 1) * produtosPorPagina).Take(produtosPorPagina),
                 Paginacao = new Paginacao()
                 {
                     PaginaAtual = pagina,

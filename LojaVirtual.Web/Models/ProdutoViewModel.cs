@@ -7,5 +7,6 @@ namespace LojaVirtual.Web.Models
     {
         public IEnumerable<Produto> Produtos;
         public Paginacao Paginacao { get; set; }
+        public string CategoriaAtual { get; set; }
     }
 }
