@@ -232,6 +232,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Vitrine\ListaProdutos.cshtml" />
+    <Content Include="Views\Shared\ProdutoPartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

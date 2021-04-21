@@ -11,22 +11,8 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    @foreach (var item in Model.Produtos) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria)
-            </td>
-        </tr>
-    }
-</table>
+
+@foreach (var item in Model.Produtos) {
+    @Html.Partial("ProdutoPartialView", item) 
+ }
 <div>@Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x})) </div>
