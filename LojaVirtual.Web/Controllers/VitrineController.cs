@@ -20,13 +20,14 @@ namespace LojaVirtual.Web.Controllers
 
             ProdutoViewModel produtoViewModel = new ProdutoViewModel()
             {
-                Produtos = context.Produtos.Where(p => p.Categoria == null || p.Categoria == categoria).OrderBy(p => p.Descricao).Skip((pagina - 1) * produtosPorPagina).Take(produtosPorPagina),
+                Produtos = context.Produtos.Where(p => categoria == null || p.Categoria == categoria).OrderBy(p => p.Descricao).Skip((pagina - 1) * produtosPorPagina).Take(produtosPorPagina),
                 Paginacao = new Paginacao()
                 {
                     PaginaAtual = pagina,
                     ItensPorPagina = produtosPorPagina,
-                    ItensTotal = context.Produtos.Count()
-                }
+                    ItensTotal = categoria == null ? context.Produtos.Count() : context.Produtos.Count(e => e.Categoria == categoria)
+                },
+                CategoriaAtual = categoria                
             };
                  
             return View(produtoViewModel);

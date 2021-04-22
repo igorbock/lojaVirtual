@@ -15,30 +15,35 @@ namespace LojaVirtual.Web
 
             //1
             routes.MapRoute(
-                name: null,
-                url: "",
-                defaults: new { controller = "Vitrine", action = "ListaProdutos", categoria = (string)null, pagina = 1 }
+                null,
+                "",
+                new { controller = "Vitrine", action = "ListaProdutos", categoria = (string)null, pagina = 1 }
                 );
 
             //2
             routes.MapRoute(
-                name: null,
-                url: "Pagina{pagina}",
-                defaults: new { controller = "Vitrine", action = "ListaProdutos", categoria = (string)null, pagina = @"\d+" }
+                null,
+                "Pagina{pagina}",
+                new { controller = "Vitrine", action = "ListaProdutos", categoria = (string)null }, new {pagina = @"\d+" }
                 );
 
             //3
             routes.MapRoute(
-                name: null,
-                url: "{categoria}",
-                defaults: new { controller = "Vitrine", action = "ListaProdutos", pagina = 1 }
+                null,
+                "{categoria}",
+                new { controller = "Vitrine", action = "ListaProdutos", pagina = 1 }
                 );
 
             //4
             routes.MapRoute(
-                name: null,
-                url: "{categoria}/Pagina{pagina}",
-                defaults: new { controller = "Vitrine", action = "ListaProdutos" }, new { pagina = @"\d+" }
+                null,
+                "{categoria}/Pagina{pagina}",
+                new { controller = "Vitrine", action = "ListaProdutos" }, new { pagina = @"\d+" }
+                );
+
+            routes.MapRoute(
+                null,
+                "{controller}/{action}"
                 );
             
             //routes.MapRoute(
@@ -47,11 +52,11 @@ namespace LojaVirtual.Web
             //    defaults: new { controller = "Vitrine", action = "ListaProdutos" }
             //    );
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Vitrine", action = "ListaProdutos", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Vitrine", action = "ListaProdutos", id = UrlParameter.Optional }
+            //);
         }
     }
 }
