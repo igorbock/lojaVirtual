@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TesteCarrinhoCompras.cs" />
     <Compile Include="UnitTestLojaVirtual.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
